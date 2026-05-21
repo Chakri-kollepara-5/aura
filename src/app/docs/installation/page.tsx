@@ -15,7 +15,7 @@ export default function InstallationPage() {
           <CodeBlock 
             title="powershell"
             language="powershell"
-            code={`iwr -useb http://localhost:3000/install.ps1 | iex`}
+            code={`iwr -useb https://raw.githubusercontent.com/Chakri-kollepara-5/aura/main/install.ps1 | iex`}
           />
           <p className="text-zinc-400 mt-4">The installer will automatically add AURA to your PATH. You may need to restart your terminal.</p>
         </section>
@@ -45,6 +45,16 @@ export default function InstallationPage() {
               code={`code --install-extension aura-lang.aura-vscode`}
             />
           </div>
+        </section>
+
+        <section className="glass-card p-6 rounded-xl border-l-4 border-l-zinc-500">
+          <h3 className="text-lg font-bold text-white mb-2">Queries &amp; Support</h3>
+          <p className="text-zinc-400 text-sm">
+            Have questions, feedback, or need help with installation? Please reach out to us directly via email at{" "}
+            <a href="mailto:vschakravarthi7@gmail.com" className="text-primary hover:underline font-semibold">
+              vschakravarthi7@gmail.com
+            </a>.
+          </p>
         </section>
       </div>
     </div>

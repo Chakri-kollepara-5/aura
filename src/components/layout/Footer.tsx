@@ -27,11 +27,8 @@ export default function Footer() {
               The explainable, offline-first programming language for the next generation of safe, concurrent systems.
             </p>
             <div className="flex gap-4">
-              <Link href="#" className="text-zinc-400 hover:text-white transition-colors">
+              <Link href="https://github.com/Chakri-kollepara-5/aura.git" target="_blank" className="text-zinc-400 hover:text-white transition-colors">
                 <GithubIcon className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-zinc-400 hover:text-white transition-colors">
-                <TwitterIcon className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -52,16 +49,16 @@ export default function Footer() {
               <li><Link href="/download" className="hover:text-white transition-colors">Download SDK</Link></li>
               <li><Link href="/download#vsix" className="hover:text-white transition-colors">VS Code Extension</Link></li>
               <li><Link href="/roadmap" className="hover:text-white transition-colors">Roadmap</Link></li>
-              <li><Link href="https://github.com/aura-lang" className="hover:text-white transition-colors">GitHub Repository</Link></li>
+              <li><Link href="https://github.com/Chakri-kollepara-5/aura.git" target="_blank" className="hover:text-white transition-colors">GitHub Repository</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Company</h3>
+            <h3 className="font-semibold text-white mb-4">Support &amp; Contact</h3>
             <ul className="space-y-3 text-sm text-zinc-400">
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><a href="mailto:vschakravarthi7@gmail.com" className="hover:text-white transition-colors">Queries: vschakravarthi7@gmail.com</a></li>
             </ul>
           </div>
         </div>

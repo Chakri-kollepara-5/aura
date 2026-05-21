@@ -63,7 +63,7 @@ export default function Navbar() {
             <span>Download SDK</span>
           </Link>
           
-          <Link href="https://github.com/aura-lang" target="_blank" className="p-2 text-zinc-400 hover:text-white transition-colors">
+          <Link href="https://github.com/Chakri-kollepara-5/aura.git" target="_blank" className="p-2 text-zinc-400 hover:text-white transition-colors">
             <GithubIcon className="h-5 w-5" />
           </Link>
         </div>
