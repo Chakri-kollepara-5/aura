@@ -94,20 +94,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-@keyframes splash-bounce {
-  0%, 100% {
-    transform: scale(1) rotate(-10deg) translateY(0);
-  }
-  50% {
-    transform: scale(1.08) rotate(-10deg) translateY(-4px);
-  }
-}
 
-.splash-text-aura {
-  animation: splash-bounce 1.5s ease-in-out infinite;
-  display: inline-block;
-  text-shadow: 1.5px 1.5px 0px #000000;
-}
 
 @keyframes aura-pulse {
   0%, 100% {
