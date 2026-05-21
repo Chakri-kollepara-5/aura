@@ -7,6 +7,8 @@ import { motion, Variants } from "framer-motion";
 import { ArrowRight, Terminal, Cpu, Zap, Shield, FileCode2, Package, GitBranch, TerminalSquare } from "lucide-react";
 
 const SPLASH_TEXTS = [
+  "AURA 2.0!",
+  "FEEL THE AURA!",
   "Explain Mode Active!",
   "100% Offline-First!",
   "Zero Dependencies!",
@@ -18,7 +20,7 @@ const SPLASH_TEXTS = [
 ];
 
 export default function LandingPage() {
-  const [splashText, setSplashText] = useState("100% Offline-First!");
+  const [splashText, setSplashText] = useState("AURA 2.0!");
 
   useEffect(() => {
     const randomText = SPLASH_TEXTS[Math.floor(Math.random() * SPLASH_TEXTS.length)];
@@ -70,7 +72,7 @@ export default function LandingPage() {
               
               {/* Floating Bouncing Splash Text */}
               <div className="absolute -right-20 -top-3 md:-right-24 md:-top-4 z-20 pointer-events-none">
-                <span className="splash-text-aura px-2.5 py-1 bg-yellow-400 text-black text-[9px] md:text-xs font-black uppercase tracking-wider rounded-md shadow-[0_0_15px_rgba(250,204,21,0.6)] border border-yellow-300">
+                <span className="splash-text-aura whitespace-nowrap px-2.5 py-1 bg-yellow-400 text-black text-[9px] md:text-xs font-black uppercase tracking-wider rounded-md shadow-[0_0_15px_rgba(250,204,21,0.6)] border border-yellow-300">
                   {splashText}
                 </span>
               </div>
