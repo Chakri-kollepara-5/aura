@@ -15,11 +15,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aura-lang.org"),
   title: {
     template: "%s | AURA 2.0",
     default: "AURA 2.0 | Explainable Offline Programming Language",
   },
   description: "A premium, production-grade programming language ecosystem featuring an explainable runtime, offline-first compiler, and safe concurrency.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/images/aura-app-icon.png",
+  },
   openGraph: {
     title: "AURA 2.0 | Explainable Offline Programming Language",
     description: "The complete offline-first toolchain. Includes the compiler, language server, REPL, and standard library in a single dependency-free binary.",
@@ -27,11 +33,20 @@ export const metadata: Metadata = {
     siteName: "AURA Docs",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/aura-hero.png",
+        width: 1200,
+        height: 630,
+        alt: "AURA 2.0 Programming Language",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AURA 2.0",
     description: "The complete offline-first toolchain.",
+    images: ["/images/aura-hero.png"],
   },
 };
 
