@@ -1,6 +1,17 @@
 import { MonacoPreview } from "@/components/ui/MonacoPreview";
 
 export default function StructsEnumsDoc() {
+  const implCode = [
+    'impl Server {',
+    '    fn start(&mut self) {',
+    '        self.active = true;',
+    '        print("Server started on ${self.port}");',
+    '    }',
+    '}',
+    '',
+    'my_server.start();'
+  ].join('\\n');
+
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
       <h1 className="text-4xl font-extrabold mb-6">Structs & Enums</h1>
@@ -23,14 +34,7 @@ let my_server = Server {
 
       <h3 className="text-2xl font-bold mb-4 mt-8 text-white">Implementation Blocks</h3>
       <p className="text-zinc-400 mb-4">You can associate functions with structs to create methods. Use `self` for instance methods.</p>
-      <MonacoPreview language="rust" height="200px" code={`impl Server {
-    fn start(&mut self) {
-        self.active = true;
-        print("Server started on ${self.port}");
-    }
-}
-
-my_server.start();`} />
+      <MonacoPreview language="rust" height="200px" code={implCode} />
 
       <h3 className="text-2xl font-bold mb-4 mt-8 text-white">Algebraic Enums</h3>
       <MonacoPreview language="rust" height="200px" code={`enum ConnectionState {

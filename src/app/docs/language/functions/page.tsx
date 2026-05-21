@@ -1,6 +1,17 @@
 import { MonacoPreview } from "@/components/ui/MonacoPreview";
 
 export default function FunctionsDoc() {
+  const connectCode = [
+    'fn connect(host: String = "localhost", port: u16 = 8080) {',
+    '    print("Connecting to ${host}:${port}...");',
+    '}',
+    '',
+    '// All of these are valid:',
+    'connect();',
+    'connect(port: 5432);',
+    'connect(host: "api.aura-lang.org", port: 443);'
+  ].join('\\n');
+
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
       <h1 className="text-4xl font-extrabold mb-6">Functions</h1>
@@ -19,14 +30,7 @@ print(result); // 30`} />
 
       <h3 className="text-2xl font-bold mb-4 mt-8 text-white">Named Arguments & Default Values</h3>
       <p className="text-zinc-400 mb-4">AURA supports highly readable named arguments and default parameters.</p>
-      <MonacoPreview language="rust" height="250px" code={`fn connect(host: String = "localhost", port: u16 = 8080) {
-    print("Connecting to ${host}:${port}...");
-}
-
-// All of these are valid:
-connect();
-connect(port: 5432);
-connect(host: "api.aura-lang.org", port: 443);`} />
+      <MonacoPreview language="rust" height="250px" code={connectCode} />
 
       <h3 className="text-2xl font-bold mb-4 mt-8 text-white">Closures</h3>
       <p className="text-zinc-400 mb-4">Closures capture their environment. Use the `||` syntax.</p>
