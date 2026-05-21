@@ -48,6 +48,11 @@ export function DocsSidebar() {
           <li><Link href="/docs/internals" className={getLinkClass('/docs/internals')}>Compiler Internals</Link></li>
         </ul>
       </div>
+
+      <div className="mt-auto pt-8 border-t border-white/5">
+        <p className="text-xs text-zinc-600">Designed &amp; built by</p>
+        <p className="text-xs font-semibold text-zinc-400 mt-0.5">k.chakravarthi</p>
+      </div>
     </nav>
   );
 }
