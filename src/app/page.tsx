@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight, Terminal, Cpu, Zap, Shield, FileCode2, Package, GitBranch, TerminalSquare } from "lucide-react";
 
@@ -32,6 +33,18 @@ export default function LandingPage() {
           initial="hidden"
           animate="visible"
         >
+          <motion.div variants={itemVars} className="mb-8 flex justify-center">
+            <div className="relative h-24 w-24 md:h-28 md:w-28">
+              <Image
+                src="/images/aura-monogram.png"
+                alt="AURA Monogram Logo"
+                fill
+                className="object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]"
+                priority
+              />
+            </div>
+          </motion.div>
+
           <motion.div variants={itemVars} className="mb-6 flex justify-center">
             <div className="glass px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 border border-primary/30 text-primary">
               <SparklesIcon className="w-4 h-4" />

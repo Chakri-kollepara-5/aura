@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Terminal } from "lucide-react";
+import Image from "next/image";
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} stroke="none">
@@ -19,9 +19,13 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4 group">
-              <Terminal className="h-5 w-5 text-primary" />
-              <span className="font-bold text-xl tracking-tight text-white">AURA<span className="text-primary">.</span></span>
+            <Link href="/" className="flex items-center mb-4 group relative h-8 w-28 block">
+              <Image
+                src="/images/aura-horizontal.png"
+                alt="AURA Logo"
+                fill
+                className="object-contain"
+              />
             </Link>
             <p className="text-sm text-zinc-400 mb-6 max-w-xs">
               The explainable, offline-first programming language for the next generation of safe, concurrent systems.
