@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { TerminalSquare, ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -7,8 +6,8 @@ export default function NotFound() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[150px] rounded-full pointer-events-none" />
       
       <div className="glass-card p-12 rounded-3xl border border-white/10 text-center max-w-lg w-full relative z-10 animate-in zoom-in-95 duration-500">
-        <div className="w-20 h-20 mx-auto bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center justify-center mb-8">
-          <TerminalSquare className="w-10 h-10 text-red-400" />
+        <div className="w-20 h-20 mx-auto bg-red-500/10 border border-red-500/20 rounded-2xl flex items-center justify-center mb-8 font-mono font-bold text-red-400 text-2xl select-none">
+          !
         </div>
         
         <h1 className="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20 mb-4 tracking-tighter">
@@ -22,9 +21,8 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link 
             href="/" 
-            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-colors flex items-center justify-center"
           >
-            <ArrowLeft className="w-4 h-4" />
             Return Home
           </Link>
           <Link 

@@ -1,11 +1,9 @@
 import Image from "next/image";
-import { Download, ShieldCheck, Paintbrush } from "lucide-react";
 
 export default function BrandingDoc() {
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
-      <h1 className="text-4xl font-extrabold mb-6 flex items-center gap-3">
-        <Paintbrush className="text-primary w-9 h-9" />
+      <h1 className="text-4xl font-extrabold mb-6">
         Branding &amp; Assets
       </h1>
       <p className="text-lg text-zinc-400 mb-8 leading-relaxed">
@@ -35,7 +33,6 @@ export default function BrandingDoc() {
               download="aura-branding-guidelines.png"
               className="flex items-center gap-2 px-4 py-2.5 bg-white text-black font-semibold rounded-lg hover:bg-zinc-200 transition-colors text-sm"
             >
-              <Download className="w-4 h-4" />
               Download Full Sheet
             </a>
           </div>
@@ -119,8 +116,7 @@ export default function BrandingDoc() {
 
       {/* Usage Policy */}
       <section className="glass-card p-6 rounded-xl border-l-4 border-l-primary/70">
-        <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-          <ShieldCheck className="w-5 h-5 text-primary" />
+        <h3 className="text-lg font-bold text-white mb-2">
           Usage Guidelines
         </h3>
         <p className="text-zinc-400 text-sm leading-relaxed">

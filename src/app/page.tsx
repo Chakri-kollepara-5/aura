@@ -1,11 +1,27 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Terminal, Cpu, Zap, Shield, FileCode2, Package, GitBranch, TerminalSquare } from "lucide-react";
 
 export default function LandingPage() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const introShown = sessionStorage.getItem("aura_intro_shown");
+    if (introShown) {
+      setShowIntro(false);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+      sessionStorage.setItem("aura_intro_shown", "true");
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const containerVars: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -21,6 +37,64 @@ export default function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden">
+      {/* Netflix-style Logo Splash Screen */}
+      {showIntro && (
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 0.6, delay: 2.0 }}
+          className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center pointer-events-auto"
+          onClick={() => setShowIntro(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0, filter: "blur(10px)" }}
+            animate={{ 
+              scale: [0.5, 1, 1.2, 4], 
+              opacity: [0, 1, 1, 0],
+              filter: ["blur(10px)", "blur(0px)", "blur(0px)", "blur(20px)"]
+            }}
+            transition={{ 
+              duration: 2.2, 
+              times: [0, 0.2, 0.7, 1.0], 
+              ease: [0.25, 1, 0.5, 1]
+            }}
+            className="relative w-48 h-48 md:w-64 md:h-64 flex flex-col items-center justify-center"
+          >
+            <Image
+              src="/images/aura-monogram.png"
+              alt="AURA Logo Intro"
+              fill
+              className="object-contain drop-shadow-[0_0_40px_rgba(0,229,153,0.8)]"
+              priority
+            />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30, letterSpacing: "0.2em" }}
+            animate={{ 
+              opacity: [0, 1, 1, 0],
+              y: [30, 0, 0, -10],
+              letterSpacing: ["0.2em", "0.6em", "0.7em", "1em"]
+            }}
+            transition={{ 
+              duration: 2.2,
+              times: [0, 0.3, 0.7, 1.0],
+              ease: "easeOut"
+            }}
+            className="mt-8 text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary text-center tracking-widest drop-shadow-[0_0_20px_rgba(0,229,153,0.5)] uppercase"
+          >
+            AURA
+          </motion.div>
+          
+          <motion.div
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: ["0%", "80%", "100%", "0%"], opacity: [0, 1, 0.5, 0] }}
+            transition={{ duration: 1.8, delay: 0.2, ease: "easeInOut" }}
+            className="absolute bottom-1/4 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
+          />
+        </motion.div>
+      )}
+
       {/* Abstract Background Gradients */}
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px] pointer-events-none" />
       <div className="absolute top-[20%] right-[-10%] w-[40%] h-[60%] rounded-full bg-accent/20 blur-[150px] pointer-events-none" />
@@ -53,9 +127,8 @@ export default function LandingPage() {
 
           <motion.div variants={itemVars} className="mb-6 flex justify-center">
             <div className="glass px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 border border-primary/30 text-primary">
-              <SparklesIcon className="w-4 h-4" />
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span>AURA 2.0 is now available</span>
-              <ArrowRight className="w-4 h-4" />
             </div>
           </motion.div>
           
@@ -70,16 +143,13 @@ export default function LandingPage() {
           </motion.p>
           
           <motion.div variants={itemVars} className="flex flex-wrap justify-center gap-4">
-            <Link href="/docs/quick-start" className="px-6 py-3 rounded-lg bg-primary text-black font-semibold hover:bg-primary/90 transition-all flex items-center gap-2 shadow-[0_0_30px_rgba(0,229,153,0.3)] hover:shadow-[0_0_40px_rgba(0,229,153,0.5)]">
-              <Terminal className="w-5 h-5" />
+            <Link href="/docs/quick-start" className="px-6 py-3 rounded-lg bg-primary text-black font-semibold hover:bg-primary/90 transition-all shadow-[0_0_30px_rgba(0,229,153,0.3)] hover:shadow-[0_0_40px_rgba(0,229,153,0.5)]">
               Get Started
             </Link>
-            <Link href="/download" className="px-6 py-3 rounded-lg glass font-semibold hover:bg-white/10 transition-all flex items-center gap-2">
-              <Package className="w-5 h-5" />
+            <Link href="/download" className="px-6 py-3 rounded-lg glass font-semibold hover:bg-white/10 transition-all">
               Download SDK
             </Link>
-            <Link href="/docs" className="px-6 py-3 rounded-lg glass font-semibold hover:bg-white/10 transition-all flex items-center gap-2">
-              <FileCode2 className="w-5 h-5" />
+            <Link href="/docs" className="px-6 py-3 rounded-lg glass font-semibold hover:bg-white/10 transition-all">
               Documentation
             </Link>
           </motion.div>
@@ -102,7 +172,6 @@ export default function LandingPage() {
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
               <div className="mx-auto text-xs font-mono text-zinc-500 flex items-center gap-2">
-                <TerminalSquare className="w-3.5 h-3.5" />
                 aura run main.ar --explain
               </div>
             </div>
@@ -135,32 +204,32 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeatureCard 
-              icon={<TerminalSquare className="w-6 h-6 text-primary" />}
+              num="01"
               title="Explainable Runtime"
               description="Trace every variable mutation, function call, and scheduler yield. AURA's --explain flag demystifies execution."
             />
             <FeatureCard 
-              icon={<Shield className="w-6 h-6 text-accent" />}
+              num="02"
               title="Offline-First Toolchain"
               description="No internet? No problem. The entire compiler, language server, and standard library operate 100% locally."
             />
             <FeatureCard 
-              icon={<Zap className="w-6 h-6 text-yellow-400" />}
+              num="03"
               title="Safe Concurrency"
               description="Built-in threading model with zero data races. Spawn lightweight processes natively with the `spawn` keyword."
             />
             <FeatureCard 
-              icon={<Cpu className="w-6 h-6 text-rose-400" />}
+              num="04"
               title="Hybrid Parser"
               description="A custom Recursive Descent + Pratt parser ensures blazing fast compilation and highly accurate diagnostics."
             />
             <FeatureCard 
-              icon={<GitBranch className="w-6 h-6 text-emerald-400" />}
+              num="05"
               title="Immutable AST"
               description="Write macro-like transformations safely. AURA's AST is strictly immutable, making semantic analysis deterministic."
             />
             <FeatureCard 
-              icon={<FileCode2 className="w-6 h-6 text-blue-400" />}
+              num="06"
               title="VS Code Native"
               description="First-class IDE support out of the box with intelligent autocompletion, hover docs, and inline explain mode."
             />
@@ -176,7 +245,7 @@ export default function LandingPage() {
             AURA 2.0 is just the beginning. We are actively developing the native formatter, linter, and decentralized registry.
           </p>
           <Link href="/roadmap" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group">
-            View full roadmap <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            View full roadmap
           </Link>
         </div>
       </section>
@@ -184,28 +253,16 @@ export default function LandingPage() {
   );
 }
 
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
+function FeatureCard({ num, title, description }: { num: string, title: string, description: string }) {
   return (
     <div className="glass-card p-8 rounded-2xl group hover:-translate-y-1 transition-all duration-300">
       <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
-        {icon}
+        <span className="text-lg font-bold font-mono text-primary">{num}</span>
       </div>
       <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
       <p className="text-zinc-400 leading-relaxed text-sm">
         {description}
       </p>
     </div>
-  );
-}
-
-function SparklesIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-      <path d="M5 3v4" />
-      <path d="M19 17v4" />
-      <path d="M3 5h4" />
-      <path d="M17 19h4" />
-    </svg>
   );
 }

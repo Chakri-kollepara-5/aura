@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Editor from "@monaco-editor/react";
-import { Copy, Check } from "lucide-react";
 
 interface MonacoPreviewProps {
   code: string;
@@ -24,10 +23,10 @@ export function MonacoPreview({ code, language = "rust", height = "300px" }: Mon
       <div className="absolute top-4 right-4 z-10 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
         <button 
           onClick={copyToClipboard}
-          className="p-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-md text-white transition-colors"
+          className="px-2.5 py-1 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-md text-white transition-colors text-xs font-mono select-none"
           title="Copy code"
         >
-          {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-zinc-300" />}
+          {copied ? "Copied" : "Copy"}
         </button>
       </div>
       <Editor
