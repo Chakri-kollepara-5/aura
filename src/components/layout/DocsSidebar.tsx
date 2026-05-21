@@ -54,6 +54,7 @@ export function DocsSidebar() {
         <h4 className="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Ecosystem</h4>
         <ul className="space-y-2 text-sm text-zinc-400">
           <li><Link href="/docs/status" className={getLinkClass('/docs/status')}>Real vs Planned</Link></li>
+          <li><Link href="/docs/branding" className={getLinkClass('/docs/branding')}>Branding &amp; Assets</Link></li>
           <li><Link href="/examples" className={getLinkClass('/examples')}>Examples Gallery</Link></li>
           <li><Link href="/roadmap" className={getLinkClass('/roadmap')}>Roadmap</Link></li>
         </ul>

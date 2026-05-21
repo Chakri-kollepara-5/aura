@@ -49,6 +49,7 @@ export default function Footer() {
               <li><Link href="/download" className="hover:text-white transition-colors">Download SDK</Link></li>
               <li><Link href="/download#vsix" className="hover:text-white transition-colors">VS Code Extension</Link></li>
               <li><Link href="/roadmap" className="hover:text-white transition-colors">Roadmap</Link></li>
+              <li><Link href="/docs/branding" className="hover:text-white transition-colors">Branding &amp; Assets</Link></li>
               <li><Link href="https://github.com/Chakri-kollepara-5/aura.git" target="_blank" className="hover:text-white transition-colors">GitHub Repository</Link></li>
             </ul>
           </div>
