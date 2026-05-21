@@ -1,11 +1,30 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight, Terminal, Cpu, Zap, Shield, FileCode2, Package, GitBranch, TerminalSquare } from "lucide-react";
 
+const SPLASH_TEXTS = [
+  "Explain Mode Active!",
+  "100% Offline-First!",
+  "Zero Dependencies!",
+  "Visual AST Tracing!",
+  "Runs at Light Speed!",
+  "Built with Safety Orbit!",
+  "Pratt Parsed!",
+  "Type-Safe Concurrency!"
+];
+
 export default function LandingPage() {
+  const [splashText, setSplashText] = useState("100% Offline-First!");
+
+  useEffect(() => {
+    const randomText = SPLASH_TEXTS[Math.floor(Math.random() * SPLASH_TEXTS.length)];
+    setSplashText(randomText);
+  }, []);
+
   const containerVars: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -33,15 +52,28 @@ export default function LandingPage() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={itemVars} className="mb-8 flex justify-center">
-            <div className="relative h-24 w-24 md:h-28 md:w-28">
-              <Image
-                src="/images/aura-monogram.png"
-                alt="AURA Monogram Logo"
-                fill
-                className="object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.2)]"
-                priority
-              />
+          <motion.div variants={itemVars} className="mb-8 flex flex-col items-center justify-center relative">
+            {/* Glowing background 'aura' behind the logo */}
+            <div className="absolute w-40 h-40 rounded-full bg-primary/15 blur-[45px] aura-bg-glow pointer-events-none z-0" />
+            
+            <div className="relative flex items-center justify-center z-10">
+              {/* Monogram Logo */}
+              <div className="relative h-24 w-24 md:h-28 md:w-28">
+                <Image
+                  src="/images/aura-monogram.png"
+                  alt="AURA Monogram Logo"
+                  fill
+                  className="object-contain drop-shadow-[0_0_20px_rgba(0,229,153,0.3)]"
+                  priority
+                />
+              </div>
+              
+              {/* Floating Bouncing Splash Text */}
+              <div className="absolute -right-20 -top-3 md:-right-24 md:-top-4 z-20 pointer-events-none">
+                <span className="splash-text-aura px-2.5 py-1 bg-yellow-400 text-black text-[9px] md:text-xs font-black uppercase tracking-wider rounded-md shadow-[0_0_15px_rgba(250,204,21,0.6)] border border-yellow-300">
+                  {splashText}
+                </span>
+              </div>
             </div>
           </motion.div>
 
