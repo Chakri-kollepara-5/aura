@@ -78,6 +78,12 @@ export default function DownloadPage() {
             <div className="p-4 rounded-xl bg-black/50 border border-white/10 flex items-center justify-between">
               <code className="text-sm font-mono text-primary">code --install-extension aura-lang.aura-vscode</code>
             </div>
+
+            <div className="pt-2">
+              <Link href="/docs/vscode-extension" className="text-sm text-primary hover:underline inline-flex items-center gap-1">
+                View extension setup & commands guide →
+              </Link>
+            </div>
           </div>
         </section>
 

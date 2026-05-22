@@ -37,6 +37,7 @@ export function DocsSidebar() {
         <h4 className="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Toolchain & CLI</h4>
         <ul className="space-y-2 text-sm text-zinc-400">
           <li><Link href="/docs/cli" className={getLinkClass('/docs/cli')}>CLI Reference</Link></li>
+          <li><Link href="/docs/vscode-extension" className={getLinkClass('/docs/vscode-extension')}>AURA VS Code Extension</Link></li>
           <li><Link href="/docs/formatter" className={getLinkClass('/docs/formatter')}>Formatter (aura fmt)</Link></li>
           <li><Link href="/docs/troubleshooting" className={getLinkClass('/docs/troubleshooting')}>Troubleshooting</Link></li>
         </ul>
